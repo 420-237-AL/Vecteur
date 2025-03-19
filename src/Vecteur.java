@@ -7,17 +7,16 @@ public class Vecteur {
 
     public Vecteur() {
         this.tab = new int[TAILLE_INITIALE];
-        this.nbElements = 2;
-        tab[0] = 5;
-        tab[1] = 6;
+        this.nbElements = 0;
     }
 
     @Override
     public String toString() {
-        String s = "[";
+        StringBuilder s = new StringBuilder("[");
         for (int i = 0; i < nbElements - 1; i++)
-            s += tab[i] + ", ";
-        s += tab[nbElements - 1];
+            s.append(tab[i]).append(", ");
+        if (nbElements > 0)
+            s.append(tab[nbElements - 1]);
         return s + "]";
     }
 }
