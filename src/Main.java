@@ -1,5 +1,6 @@
 public class Main {
     public static void main(String[] args) {
-        System.out.println("Hello, World!");
+        Vecteur v1 = new Vecteur();
+        System.out.println(v1);
     }
 }
