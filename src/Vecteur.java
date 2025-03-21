@@ -1,17 +1,17 @@
 public class Vecteur {
+    private static final int RATIO_AGRANDISSEMENT = 2;
+    private static final int CAPACITE_INITIALE = 5;
+
     private char[] tab;
     private int nbElements;
 
-    private static final int RATIO_AGRANDISSEMENT = 2;
-    private static final int TAILLE_INITIALE = 2;
-
-    public Vecteur(int tailleInitiale) {
-        this.tab = new char[tailleInitiale];
+    public Vecteur(int capaciteInitiale) {
+        this.tab = new char[capaciteInitiale];
         this.nbElements = 0;
     }
 
     public Vecteur() {
-        this(TAILLE_INITIALE); // Délégation au constructeur avec une taille initiale.
+        this(CAPACITE_INITIALE); // Délégation au constructeur avec une taille initiale.
     }
 
     @Override
