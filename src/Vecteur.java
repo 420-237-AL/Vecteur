@@ -5,9 +5,13 @@ public class Vecteur {
     private static final int RATIO_AGRANDISSEMENT = 2;
     private static final int TAILLE_INITIALE = 2;
 
-    public Vecteur() {
-        this.tab = new char[TAILLE_INITIALE];
+    public Vecteur(int tailleInitiale) {
+        this.tab = new char[tailleInitiale];
         this.nbElements = 0;
+    }
+
+    public Vecteur() {
+        this(TAILLE_INITIALE); // Délégation au constructeur avec une taille initiale.
     }
 
     @Override
