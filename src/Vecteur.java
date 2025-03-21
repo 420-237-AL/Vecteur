@@ -14,6 +14,10 @@ public class Vecteur {
         this(CAPACITE_INITIALE); // Délégation au constructeur avec une taille initiale.
     }
 
+    public int getNbElements() {
+        return nbElements;
+    }
+
     public boolean estVide() {
         return nbElements == 0;
     }
@@ -22,7 +26,7 @@ public class Vecteur {
         return nbElements == tab.length;
     }
 
-    private void agrandir() { // 'resize()' dans les notes de cours
+    private void agrandir() { // appelé 'resize()' dans les notes de cours
         char[] newTab = new char[tab.length * RATIO_AGRANDISSEMENT];
         for (int i = 0; i < tab.length; i++)
             newTab[i] = tab[i];
@@ -42,6 +46,12 @@ public class Vecteur {
             tab[i] = tab[i - 1];
         tab[index] = element;
         nbElements++;
+    }
+
+    public void ajouter(Vecteur autre) { // équivalent à 'ArrayList.append()'
+        int stop = autre.nbElements; // Pourquoi avoir écrit cette ligne?
+        for (int i = 0; i < stop; i++)
+            this.ajouter(autre.tab[i]);
     }
 
     @Override
