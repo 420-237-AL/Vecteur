@@ -38,18 +38,9 @@ public class Vecteur {
     public void ajouter(char element, int index) { // équivalent à 'ArrayList.insert()'
         if (estPlein())
             agrandir();
-
-        char[] temp = new char[tab.length];
-
-        for (int i = 0; i < index; i++)
-            temp[i] = tab[i];
-
-        temp[index] = element;
-
-        for (int i = index; i < nbElements; i++)
-            temp[i + 1] = tab[i];
-
-        tab = temp;
+        for (int i = nbElements; i >= index; i--)
+            tab[i] = tab[i - 1];
+        tab[index] = element;
         nbElements++;
     }
 
