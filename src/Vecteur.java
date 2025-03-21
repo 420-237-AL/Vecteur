@@ -14,6 +14,23 @@ public class Vecteur {
         this(CAPACITE_INITIALE); // Délégation au constructeur avec une taille initiale.
     }
 
+    private boolean estPlein() {
+        return nbElements == tab.length;
+    }
+
+    private void agrandir() {
+        char[] newTab = new char[tab.length * RATIO_AGRANDISSEMENT];
+        for (int i = 0; i < tab.length; i++)
+            newTab[i] = tab[i];
+        tab = newTab;
+    }
+
+    public void ajouter(char element) { // append
+        if (estPlein())
+            agrandir();
+        tab[nbElements++] = element;
+    }
+
     @Override
     public String toString() {
         StringBuilder s = new StringBuilder("[");
