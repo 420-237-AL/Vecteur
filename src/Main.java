@@ -1,15 +1,15 @@
 public class Main {
     public static void main(String[] args) {
-        Vecteur v1 = new Vecteur(2);
+        Vecteur v1 = new Vecteur();
         System.out.println(v1);
 
         v1.ajouter('A');
-        System.out.println(v1);
-
-        v1.ajouter('B');
-        System.out.println(v1);
-
         v1.ajouter('C');
+        v1.ajouter('E');
+        System.out.println(v1);
+
+        v1.ajouter('B', 1);
+        v1.ajouter('D', 3);
         System.out.println(v1);
     }
 }
