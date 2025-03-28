@@ -44,5 +44,22 @@ public class Main {
         v3.ajouter('K');
         System.out.print(v1.trouver(v3));
         System.out.println(": " + v1.trouverTout(v3));
+
+        // Test de effacer(index)
+        v1.retirer('D');
+        v1.retirer('A');
+        v1.retirer('H');
+        System.out.print(v1.getNbElements() + ": ");
+        System.out.println(v1);
+
+        // Test de effacer(vecteur)
+        Vecteur v4 = new Vecteur(4);
+        v4.ajouter('E');
+        v4.ajouter('B');
+        v4.ajouter('G');
+        v4.ajouter('K');
+        System.out.print("r=" + v1.retirerTout(v4));
+        System.out.print(", n=" + v1.getNbElements());
+        System.out.println(", v=" + v1);
     }
 }

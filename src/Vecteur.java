@@ -75,6 +75,24 @@ public class Vecteur {
         return (this.trouver(autre) == autre.nbElements);
     }
 
+    public boolean retirer(char element) {
+        int index = trouver(element);
+        if (index == -1) // Ceci est une "clause de garde", ça sert à quitter immédiatement la fonction en cas d'erreur.
+            return false;
+
+        nbElements--;
+        for (int i = index; i < nbElements; i++)
+            tab[i] = tab[i + 1];
+        return true;
+    }
+
+    public boolean retirerTout(Vecteur autre) {
+        boolean reussite = true;
+        for (int i = 0; i < autre.nbElements; i++)
+            reussite &= this.retirer(autre.tab[i]); // L'opérateur '&=' est comme l'opérateur '+=' mais pour l'opération '&&'.
+        return reussite;
+    }
+
     @Override
     public String toString() { // N'est pas exigé dans les notes de cours, mais très pratique.
         StringBuilder s = new StringBuilder("[");
