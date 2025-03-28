@@ -16,11 +16,11 @@ public class Vecteur {
         this(CAPACITE_INITIALE); // Délégation au constructeur avec une taille initiale.
     }
 
-    public int getNbElements() { // équivalent à 'ArrayList.size()'
+    public int getNbElements() { // Équivalent à 'ArrayList.size()'
         return nbElements;
     }
 
-    public boolean estVide() { // équivalent à 'ArrayList.isEmpty()'
+    public boolean estVide() { // Équivalent à 'ArrayList.isEmpty()'
         return nbElements == 0;
     }
 
@@ -28,20 +28,20 @@ public class Vecteur {
         return nbElements == tab.length;
     }
 
-    private void agrandir() { // appelé 'resize()' dans les notes de cours
+    private void agrandir() { // Appelé 'resize()' dans les notes de cours
         char[] newTab = new char[tab.length * RATIO_AGRANDISSEMENT];
         for (int i = 0; i < tab.length; i++)
             newTab[i] = tab[i];
         tab = newTab;
     }
 
-    public void ajouter(char element) { // équivalent à 'ArrayList.add()'
+    public void ajouter(char element) { // Équivalent à 'ArrayList.add(element)'
         if (estPlein())
             agrandir();
         tab[nbElements++] = element;
     }
 
-    public void ajouter(char element, int index) { // équivalent à 'ArrayList.addAll()'
+    public void ajouter(char element, int index) { // Équivalent à 'ArrayList.add(index, element)'
         if (estPlein())
             agrandir();
         for (int i = nbElements; i >= index; i--)
@@ -50,29 +50,30 @@ public class Vecteur {
         nbElements++;
     }
 
-    public void ajouter(Vecteur autre) { // équivalent à 'ArrayList.append()'
+    public void ajouterTout(Vecteur autre) { // Équivalent à 'ArrayList.addAll(collection)'
         int stop = autre.nbElements; // Cette ligne permet d'éviter une boucle infinie si autre == this;
         for (int i = 0; i < stop; i++)
             this.ajouter(autre.tab[i]);
     }
 
-    public int trouver(char element) { // équivalent à 'ArrayList.indexOf()'
+    public int trouver(char element) { // Équivalent à 'ArrayList.indexOf(element)'
         for (int i = 0; i < nbElements; i++)
             if (tab[i] == element)
                 return i;
         return -1;
     }
 
-    public int trouver(Vecteur autre) {
+    // Cette surcharge de trouverTout() retourne le nombre d'éléments communs entre les vecteurs
+    public int trouver(Vecteur autre) { // On ne peut pas l'appeler trouverTout() si seul le type de retour change :(
         int commun = 0;
-        for (int j = 0; j < autre.nbElements; j++)
-            if (this.trouver(autre.tab[j]) != -1)
+        for (int i = 0; i < autre.nbElements; i++)
+            if (this.trouver(autre.tab[i]) != -1)
                 commun++;
         return commun;
     }
 
     public boolean trouverTout(Vecteur autre) {
-        return (this.trouver(autre) == autre.nbElements);
+        return (this.trouver(autre) == autre.nbElements); // Pas besoin d'un 'if' puisque l'opérateur '==' retourne déjà un booléen.
     }
 
     public boolean retirer(char element) {
