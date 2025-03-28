@@ -63,6 +63,14 @@ public class Vecteur {
         return -1;
     }
 
+    public int trouver(Vecteur autre) {
+        int commun = 0;
+        for (int j = 0; j < autre.nbElements; j++)
+            if (this.trouver(autre.tab[j]) != -1)
+                commun++;
+        return commun;
+    }
+
     @Override
     public String toString() { // N'est pas exigé dans les notes de cours, mais très pratique.
         StringBuilder s = new StringBuilder("[");
