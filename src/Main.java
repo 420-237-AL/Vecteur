@@ -3,15 +3,18 @@ public class Main {
         Vecteur v1 = new Vecteur(2);
         System.out.println(v1);
 
+        // Test de ajouter() et agrandir()
         v1.ajouter('A');
         v1.ajouter('C');
         v1.ajouter('E');
         System.out.println(v1);
 
+        // Test de ajouter(index)
         v1.ajouter('B', 1);
         v1.ajouter('D', 3);
         System.out.println(v1);
 
+        // Test de ajouter(vecteur)
         Vecteur v2 = new Vecteur();
         v2.ajouter('F');
         v2.ajouter('G');
@@ -24,11 +27,13 @@ public class Main {
         //v1.ajouter(v1);
         //System.out.println(v1);
 
+        // Test de trouver(element)
         System.out.print(v1.trouver('D'));
         System.out.print(", " + v1.trouver('A'));
         System.out.print(", " + v1.trouver('H'));
         System.out.println(", " + v1.trouver('K'));
 
+        // Test de trouver(vecteur)
         Vecteur v3 = new Vecteur(4);
         v3.ajouter('D');
         v3.ajouter('A');

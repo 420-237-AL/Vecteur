@@ -16,11 +16,11 @@ public class Vecteur {
         this(CAPACITE_INITIALE); // Délégation au constructeur avec une taille initiale.
     }
 
-    public int getNbElements() {
+    public int getNbElements() { // équivalent à 'ArrayList.size()'
         return nbElements;
     }
 
-    public boolean estVide() {
+    public boolean estVide() { // équivalent à 'ArrayList.isEmpty()'
         return nbElements == 0;
     }
 
@@ -72,7 +72,7 @@ public class Vecteur {
     }
 
     public boolean trouverTout(Vecteur autre) {
-        return (trouver(autre) == autre.nbElements);
+        return (this.trouver(autre) == autre.nbElements);
     }
 
     @Override
