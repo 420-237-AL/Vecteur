@@ -5,11 +5,13 @@ public class Vecteur {
     private char[] tab;
     private int nbElements;
 
+    // Constructeur avec une capacité initiale configurable (n'est pas exigé dans les notes de cours)
     public Vecteur(int capaciteInitiale) {
         this.tab = new char[capaciteInitiale];
         this.nbElements = 0;
     }
 
+    // Constructeur vide (qui utilise la capacité initiale par défaut)
     public Vecteur() {
         this(CAPACITE_INITIALE); // Délégation au constructeur avec une taille initiale.
     }
@@ -33,13 +35,13 @@ public class Vecteur {
         tab = newTab;
     }
 
-    public void ajouter(char element) { // équivalent à 'ArrayList.append()'
+    public void ajouter(char element) { // équivalent à 'ArrayList.add()'
         if (estPlein())
             agrandir();
         tab[nbElements++] = element;
     }
 
-    public void ajouter(char element, int index) { // équivalent à 'ArrayList.insert()'
+    public void ajouter(char element, int index) { // équivalent à 'ArrayList.addAll()'
         if (estPlein())
             agrandir();
         for (int i = nbElements; i >= index; i--)
@@ -49,7 +51,7 @@ public class Vecteur {
     }
 
     public void ajouter(Vecteur autre) { // équivalent à 'ArrayList.append()'
-        int stop = autre.nbElements; // Pourquoi avoir écrit cette ligne?
+        int stop = autre.nbElements; // Cette ligne permet d'éviter une boucle infinie si autre == this;
         for (int i = 0; i < stop; i++)
             this.ajouter(autre.tab[i]);
     }
