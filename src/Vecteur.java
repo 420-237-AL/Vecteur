@@ -71,6 +71,10 @@ public class Vecteur {
         return commun;
     }
 
+    public boolean trouverTout(Vecteur autre) {
+        return (trouver(autre) == autre.nbElements);
+    }
+
     @Override
     public String toString() { // N'est pas exigé dans les notes de cours, mais très pratique.
         StringBuilder s = new StringBuilder("[");

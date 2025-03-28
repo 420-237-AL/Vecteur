@@ -33,7 +33,11 @@ public class Main {
         v3.ajouter('D');
         v3.ajouter('A');
         v3.ajouter('H');
+        System.out.print(v1.trouver(v3));
+        System.out.println(": " + v1.trouverTout(v3));
+
         v3.ajouter('K');
-        System.out.println(v1.trouver(v3));
+        System.out.print(v1.trouver(v3));
+        System.out.println(": " + v1.trouverTout(v3));
     }
 }
