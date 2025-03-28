@@ -56,6 +56,13 @@ public class Vecteur {
             this.ajouter(autre.tab[i]);
     }
 
+    public int trouver(char element) { // équivalent à 'ArrayList.indexOf()'
+        for (int i = 0; i < nbElements; i++)
+            if (tab[i] == element)
+                return i;
+        return -1;
+    }
+
     @Override
     public String toString() { // N'est pas exigé dans les notes de cours, mais très pratique.
         StringBuilder s = new StringBuilder("[");
