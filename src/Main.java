@@ -67,5 +67,15 @@ public class Main {
         System.out.print("r=" + v1.retirerTout(v4));
         System.out.print(", n=" + v1.getNbElements());
         System.out.println(", v=" + v1);
+
+        // Test de get()
+        System.out.println(v1.get(0));
+        System.out.println(v1.get(1));
+        try {
+            System.out.println(v1.get(2));
+        }
+        catch (IndexOutOfBoundsException e) {
+            System.out.println("Pfiou, on ne peut pas accéder à un index invalide.");
+        }
     }
 }

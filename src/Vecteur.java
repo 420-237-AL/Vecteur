@@ -16,6 +16,12 @@ public class Vecteur {
         this(CAPACITE_INITIALE); // Délégation au constructeur avec une taille initiale.
     }
 
+    public char get(int index) {
+        if (index >= nbElements)
+            throw new IndexOutOfBoundsException();
+        return tab[index];
+    }
+
     public int getNbElements() { // Équivalent à 'ArrayList.size()'
         return nbElements;
     }
@@ -92,6 +98,11 @@ public class Vecteur {
         for (int i = 0; i < autre.nbElements; i++)
             reussite &= this.retirer(autre.tab[i]); // L'opérateur '&=' est comme l'opérateur '+=' mais pour l'opération '&&'.
         return reussite;
+    }
+
+    public void retirerTout() {
+        this.tab = new char[CAPACITE_INITIALE];
+        this.nbElements = 0;
     }
 
     @Override
