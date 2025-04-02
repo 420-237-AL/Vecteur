@@ -16,7 +16,7 @@ public class Vecteur {
         this(CAPACITE_INITIALE); // Délégation au constructeur avec une taille initiale.
     }
 
-    public char get(int index) {
+    public char get(int index) { // Appelé 'getElementAt()' dans les notes de cours
         if (index >= nbElements)
             throw new IndexOutOfBoundsException();
         return tab[index];
@@ -100,7 +100,7 @@ public class Vecteur {
         return reussite;
     }
 
-    public void retirerTout() {
+    public void retirerTout() { // Équivalent à 'ArrayList.clear()'
         this.tab = new char[CAPACITE_INITIALE];
         this.nbElements = 0;
     }
