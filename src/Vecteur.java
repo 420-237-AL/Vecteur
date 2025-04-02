@@ -18,7 +18,7 @@ public class Vecteur {
 
     public char get(int index) { // Appelé 'getElementAt()' dans les notes de cours
         if (index >= nbElements)
-            throw new IndexOutOfBoundsException();
+            throw new IndexOutOfBoundsException(); // Nous verrons les Exceptions plus tard dans le cours.
         return tab[index];
     }
 
@@ -69,17 +69,17 @@ public class Vecteur {
         return -1;
     }
 
-    // Cette surcharge de trouverTout() retourne le nombre d'éléments communs entre les vecteurs
-    public int trouver(Vecteur autre) { // On ne peut pas l'appeler trouverTout() si seul le type de retour change :(
-        int commun = 0;
+    // Cette "surcharge" de trouverTout() retourne le nombre d'éléments communs entre les vecteurs.
+    public int trouverNbCommuns(Vecteur autre) { // On ne peut pas l'appeler trouverTout() si seul le type de retour est différent :(
+        int communs = 0;
         for (int i = 0; i < autre.nbElements; i++)
             if (this.trouver(autre.tab[i]) != -1)
-                commun++;
-        return commun;
+                communs++;
+        return communs;
     }
 
     public boolean trouverTout(Vecteur autre) {
-        return (this.trouver(autre) == autre.nbElements); // Pas besoin d'un 'if' puisque l'opérateur '==' retourne déjà un booléen.
+        return (this.trouverNbCommuns(autre) == autre.nbElements); // Pas besoin d'un 'if' puisque l'opérateur '==' retourne déjà un booléen.
     }
 
     public boolean retirer(char element) {
@@ -101,7 +101,7 @@ public class Vecteur {
     }
 
     public void retirerTout() { // Équivalent à 'ArrayList.clear()'
-        this.tab = new char[CAPACITE_INITIALE];
+        this.tab = new char[CAPACITE_INITIALE]; // Créer un nouveau tableau va libérer la mémoire de l'ancien.
         this.nbElements = 0;
     }
 
