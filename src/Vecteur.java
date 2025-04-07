@@ -70,7 +70,7 @@ public class Vecteur {
     }
 
     // Cette "surcharge" de trouverTout() retourne le nombre d'éléments communs entre les vecteurs.
-    public int trouverNbCommuns(Vecteur autre) { // On ne peut pas l'appeler trouverTout() si seul le type de retour est différent :(
+    public int trouverNbCommuns(Vecteur autre) { // On ne peut pas l'appeler trouverTout() car seul le type de retour est différent :(
         int communs = 0;
         for (int i = 0; i < autre.nbElements; i++)
             if (this.trouver(autre.tab[i]) != -1)
@@ -106,12 +106,12 @@ public class Vecteur {
     }
 
     @Override
-    public String toString() { // N'est pas exigé dans les notes de cours, mais très pratique.
-        StringBuilder s = new StringBuilder("[");
-        for (int i = 0; i < nbElements - 1; i++)
-            s.append(tab[i]).append(", ");
-        if (nbElements > 0)
-            s.append(tab[nbElements - 1]);
+    public String toString() { // N'est pas exigé dans les notes de cours, mais est très pratique.
+        StringBuilder s = new StringBuilder("["); // Un 'StringBuilder' est comme une 'String', mais beaucoup plus efficace
+        if (nbElements > 0)                       // quand on veut fréquemment ajouter (append) des caractères à la string.
+            s.append(tab[0]); // Le premier élément est imprimé séparément pour éviter d'avoir une virgule de trop.
+        for (int i = 1; i < nbElements; i++)
+            s.append(", ").append(tab[i]);
         return s + "]";
     }
 }

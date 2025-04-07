@@ -31,7 +31,7 @@ public class Main {
         System.out.print("i= " + v1.trouver('D'));
         System.out.print(", " + v1.trouver('A'));
         System.out.print(", " + v1.trouver('H'));
-        System.out.println(", " + v1.trouver('K'));
+        System.out.println(", " + v1.trouver('X'));
 
         // Test de trouver(vecteur)
         Vecteur v3 = new Vecteur(4);
