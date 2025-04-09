@@ -45,7 +45,7 @@ public class Main {
         System.out.print("r=" + v1.trouverNbCommuns(v3));
         System.out.println(": " + v1.trouverTout(v3));
 
-        // Test de effacer(index)
+        // Test de effacer(element)
         v1.retirer('D');
         v1.retirer('A');
         v1.retirer('H');
@@ -75,5 +75,6 @@ public class Main {
         // Test de retirerTout()
         v1.retirerTout();
         System.out.println(v1.getNbElements() + ": " + v1);
+        System.out.println("vide? " + v1.estVide());
     }
 }

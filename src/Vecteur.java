@@ -2,7 +2,7 @@ public class Vecteur {
     private static final int RATIO_AGRANDISSEMENT = 2;
     private static final int CAPACITE_INITIALE = 5;
 
-    private char[] tab;
+    private char[] tab; // Les données du Vecteur sont stockées dans un tableau (array).
     private int nbElements;
 
     // Constructeur avec une capacité initiale configurable (n'est pas exigé dans les notes de cours)
@@ -110,7 +110,7 @@ public class Vecteur {
         StringBuilder s = new StringBuilder("["); // Un 'StringBuilder' est comme une 'String', mais beaucoup plus efficace
         if (nbElements > 0)                       // quand on veut fréquemment ajouter (append) des caractères à la string.
             s.append(tab[0]); // Le premier élément est imprimé séparément pour éviter d'avoir une virgule de trop.
-        for (int i = 1; i < nbElements; i++)
+        for (int i = 1; i < nbElements; i++) // On commence ensuite la boucle à partir du deuxième noeud:
             s.append(", ").append(tab[i]);
         return s + "]";
     }
