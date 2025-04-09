@@ -65,10 +65,10 @@ class VecteurTest {
         // Ici aussi, on se fie sur la méthode setUp() pour mettre les 3 premiers éléments dans v1.
 
         // Étapes 2 et 3: Valider les résultats attendus vs. obtenus
-        assertEquals(0, v1.trouver('A'));
-        assertEquals(1, v1.trouver('C'));
-        assertEquals(2, v1.trouver('E'));
-        assertEquals(-1, v1.trouver('X'));
+        assertEquals(0, v1.trouver('A')); // Trouver le premier élément
+        assertEquals(1, v1.trouver('C')); // Trouver un élément au milieu
+        assertEquals(2, v1.trouver('E')); // Trouver le dernier élément
+        assertEquals(-1, v1.trouver('X')); // Trouver un élément inexistant
     }
 
     @Test
@@ -96,22 +96,52 @@ class VecteurTest {
     }
 
     @Test
-    void retirerIndex() {
+    void retirerElement() {
         // Étape 1: Préparer les données du test
         // Ici aussi, on se fie sur la méthode setUp() pour mettre les 3 premiers éléments dans v1.
 
-        // Autre test: retirer
+        // Sous-test: Commençons par tenter de retirer un élément non-existant
         v1.retirer('X');
         assertEquals(3, v1.getNbElements());
         assertEquals("[A, C, E]", v1.toString());
 
         // Étape 2: Utiliser la ou les méthodes à tester
-        v1.retirer('C');
-        v1.retirer('E');
-        v1.retirer('A');
+        v1.retirer('C'); // Retirer un élément au milieu
+        v1.retirer('E'); // Retirer le dernier élément
+        v1.retirer('A'); // Retirer le premier élément
 
         // Étape 3: Valider les résultats attendus vs. obtenus
         assertEquals(0, v1.getNbElements());
         assertEquals("[]", v1.toString());
+    }
+
+    @Test
+    void retirerTout() {
+        // Étape 1: Préparer les données du test
+        v1 = new Vecteur(); // Cette fois, on a besoin d'un vecteur configuré sur mesure.
+        v1.ajouter('A');
+        v1.ajouter('B');
+        v1.ajouter('C');
+        v1.ajouter('D');
+        v1.ajouter('E');
+
+        Vecteur v2 = new Vecteur();
+        v2.ajouter('A');
+        v2.ajouter('C');
+        v2.ajouter('E');
+
+        // Étapes 2 et 3: Valider les résultats attendus vs. obtenus
+        assertTrue(v1.retirerTout(v2));
+        assertEquals(2, v1.getNbElements());
+        assertEquals("[B, D]", v1.toString());
+
+        // Sous-test: Retirer un élément inexistant
+        Vecteur v3 = new Vecteur();
+        v3.ajouter('B');
+        v3.ajouter('X');
+
+        assertFalse(v1.retirerTout(v3));
+        assertEquals(1, v1.getNbElements());
+        assertEquals("[D]", v1.toString());
     }
 }
