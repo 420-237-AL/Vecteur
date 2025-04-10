@@ -82,15 +82,18 @@ public class Vecteur {
         return (this.trouverNbCommuns(autre) == autre.nbElements); // Pas besoin d'un 'if' puisque l'opérateur '==' retourne déjà un booléen.
     }
 
-    public boolean retirer(char element) {
-        int index = trouver(element);
-        if (index == -1) // Ceci est une "clause de garde", ça sert à quitter immédiatement la fonction en cas d'erreur.
+    public boolean retirer(int index) { // N'est pas exigé dans les notes de cours, mais est plutôt utile.
+        if (index >= nbElements) // Ceci est une "clause de garde", ça sert à quitter immédiatement la fonction en cas d'erreur.
             return false;
-
         nbElements--;
         for (int i = index; i < nbElements; i++)
             tab[i] = tab[i + 1];
         return true;
+    }
+
+    public boolean retirer(char element) {
+        int index = trouver(element);
+        return index != -1 ? retirer(index) : false;
     }
 
     public boolean retirerTout(Vecteur autre) {
