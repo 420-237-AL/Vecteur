@@ -144,4 +144,15 @@ class VecteurTest {
         assertEquals(1, v1.getNbElements());
         assertEquals("[D]", v1.toString());
     }
+
+    @Test
+    void getIndex() {
+        // Étapes 2 et 3: Valider les résultats attendus vs. obtenus
+        assertEquals('A', v1.get(0)); // Trouver le premier élément
+        assertEquals('C', v1.get(1)); // Trouver un élément au milieu
+        assertEquals('E', v1.get(2)); // Trouver le dernier élément
+
+        // Comment tester qu'une Exception est lancée lorsqu'on accède à un index invalide?
+        assertThrows(IndexOutOfBoundsException.class, () -> v1.get(3)); // Trouver un élément inexistant
+    }
 }
