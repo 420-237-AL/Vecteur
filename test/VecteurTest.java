@@ -101,14 +101,14 @@ class VecteurTest {
         // Ici aussi, on se fie sur la méthode setUp() pour mettre les 3 premiers éléments dans v1.
 
         // Sous-test: Commençons par tenter de retirer un élément non-existant
-        v1.retirer('X');
+        assertFalse(v1.retirer('X'));
         assertEquals(3, v1.getNbElements());
         assertEquals("[A, C, E]", v1.toString());
 
         // Étape 2: Utiliser la ou les méthodes à tester
-        v1.retirer('C'); // Retirer un élément au milieu
-        v1.retirer('E'); // Retirer le dernier élément
-        v1.retirer('A'); // Retirer le premier élément
+        assertTrue(v1.retirer('C')); // Retirer un élément au milieu
+        assertTrue(v1.retirer('E')); // Retirer le dernier élément
+        assertTrue(v1.retirer('A')); // Retirer le premier élément
 
         // Étape 3: Valider les résultats attendus vs. obtenus
         assertEquals(0, v1.getNbElements());
@@ -121,14 +121,14 @@ class VecteurTest {
         // Ici aussi, on se fie sur la méthode setUp() pour mettre les 3 premiers éléments dans v1.
 
         // Sous-test: Commençons par tenter de retirer un élément non-existant
-        v1.retirer(3);
+        assertFalse(v1.retirer(3));
         assertEquals(3, v1.getNbElements());
         assertEquals("[A, C, E]", v1.toString());
 
         // Étape 2: Utiliser la ou les méthodes à tester
-        v1.retirer(1); // Retirer un élément au milieu
-        v1.retirer(1); // Retirer le dernier élément
-        v1.retirer(0); // Retirer le premier élément
+        assertTrue(v1.retirer(1)); // Retirer un élément au milieu
+        assertTrue(v1.retirer(1)); // Retirer le dernier élément (maintenant à l'index 1 après le premier retrait).
+        assertTrue(v1.retirer(0)); // Retirer le premier élément
 
         // Étape 3: Valider les résultats attendus vs. obtenus
         assertEquals(0, v1.getNbElements());
@@ -136,7 +136,7 @@ class VecteurTest {
     }
 
     @Test
-    void retirerTout() {
+    void retirerVecteur() {
         // Étape 1: Préparer les données du test
         v1 = new Vecteur(); // Cette fois, on a besoin d'un vecteur configuré sur mesure.
         v1.ajouter('A');
@@ -163,6 +163,16 @@ class VecteurTest {
         assertFalse(v1.retirerTout(v3));
         assertEquals(1, v1.getNbElements());
         assertEquals("[D]", v1.toString());
+    }
+
+    @Test
+    void retirerTout() {
+        // Étape 2: Utiliser la ou les méthodes à tester
+        v1.retirerTout();
+
+        // Étape 3: Valider les résultats attendus vs. obtenus
+        assertEquals(0, v1.getNbElements());
+        assertEquals("[]", v1.toString());
     }
 
     @Test
