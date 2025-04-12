@@ -173,6 +173,7 @@ class VecteurTest {
         // Étape 3: Valider les résultats attendus vs. obtenus
         assertEquals(0, v1.getNbElements());
         assertEquals("[]", v1.toString());
+        assertTrue(v1.estVide());
     }
 
     @Test

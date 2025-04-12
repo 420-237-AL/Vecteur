@@ -24,7 +24,7 @@ public class Main {
         v1.ajouterTout(v2);
         System.out.println(v1.getNbElements() + ": " + v1);
 
-        //v1.ajouter(v1); // BONUS
+        //v1.ajouterTout(v1); // BONUS: Un vecteur qui s'ajoute à lui-même.
         //System.out.println(v1.getNbElements() + ": " + v1);
 
         // Test de trouver(element)
@@ -64,9 +64,9 @@ public class Main {
         System.out.println(", v=" + v1);
 
         // Test de get(index)
-        System.out.println("0=>" + v1.get(0) + ", 1=>" + v1.get(1));
+        System.out.println("0 => " + v1.get(0) + ", 1 => " + v1.get(1));
         try { // Comment tester qu'une opération invalide est correctement détectée?
-            System.out.println(v1.get(2));
+            System.out.println("2 => " + v1.get(2));
         }
         catch (IndexOutOfBoundsException e) {  // Avec des Exceptions! Mais nous verrons ça plus tard...
             System.out.println("Pfiou, on ne peut pas accéder à un index invalide.");
@@ -75,6 +75,6 @@ public class Main {
         // Test de retirerTout()
         v1.retirerTout();
         System.out.println(v1.getNbElements() + ": " + v1);
-        System.out.println("vide? " + v1.estVide());
+        System.out.println("v1 est vide? " + v1.estVide());
     }
 }
