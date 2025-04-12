@@ -69,8 +69,9 @@ public class Vecteur {
         return -1;
     }
 
-    // Cette "surcharge" de trouverTout() retourne le nombre d'éléments communs entre les vecteurs.
-    public int trouverNbCommuns(Vecteur autre) { // On ne peut pas l'appeler trouverTout() car seul le type de retour est différent :(
+    // Cette "surcharge" de trouverTout() retourne le nombre d'éléments communs entre les vecteurs;
+    // Mais on ne peut pas l'appeler trouverTout() car seul son type de retour est différent :(
+    public int trouverNbCommuns(Vecteur autre) {
         int communs = 0;
         for (int i = 0; i < autre.nbElements; i++)
             if (this.trouver(autre.tab[i]) != -1)
